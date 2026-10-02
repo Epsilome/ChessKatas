@@ -19,3 +19,9 @@ MyEmptyPiece >> isPiece [
 MyEmptyPiece >> legalMoves [
     ^ #()
 ]
+
+{ #category : 'rendering' }
+MyEmptyPiece >> renderPieceOn: aSquare [
+
+    ^ aSquare renderEmpty: self
+]

@@ -88,19 +88,15 @@ MyChessSquare >> contents [
 { #category : 'accessing' }
 MyChessSquare >> contents: aPiece [
 
-	| text |
-	contents := aPiece.
+    | text |
+    contents := aPiece.
 
-	text := contents
-		        ifNil: [
-			        color isBlack
-				        ifFalse: [ 'z' ]
-				        ifTrue: [ 'x' ] ]
-		        ifNotNil: [ contents renderPieceOn: self ].
-	piece text: (text asRopedText
-			 fontSize: 48;
-			 foreground: self foreground;
-			 fontName: MyOpenChessDownloadedFont new familyName)
+    text := contents renderPieceOn: self.
+
+    piece text: (text asRopedText
+        fontSize: 48;
+        foreground: self foreground;
+        fontName: MyOpenChessDownloadedFont new familyName)
 ]
 
 { #category : 'api - configuration' }
@@ -210,6 +206,14 @@ MyChessSquare >> renderBishop: aPiece [
 			  color isBlack
 				  ifFalse: [ 'V' ]
 				  ifTrue: [ 'v' ] ]
+]
+
+{ #category : 'rendering' }
+MyChessSquare >> renderEmpty: aPiece [
+
+    ^ color isBlack
+        ifFalse: [ 'z' ]
+        ifTrue: [ 'x' ]
 ]
 
 { #category : 'rendering' }
