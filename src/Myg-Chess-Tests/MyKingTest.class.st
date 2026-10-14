@@ -30,3 +30,22 @@ MyKingTest >> testIsNotCheckBySameColorRook [
 
 	self deny: king isInCheck
 ]
+
+{ #category : 'tests' }
+MyKingTest >> testOpponentPiecesDoesNotIncludeEmptyPieces [
+
+	| board king whitePawn blackPawn |
+	board := MyChessBoard empty.
+
+	king := MyKing white.
+	whitePawn := MyPawn white.
+	blackPawn := MyPawn black.
+
+	board
+		at: 'e1' put: king;
+		at: 'd2' put: whitePawn;
+		at: 'd7' put: blackPawn.
+
+	self assert: (king opponentPieces size) equals: 1.
+	self assert: king opponentPieces first identicalTo: blackPawn.
+]

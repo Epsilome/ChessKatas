@@ -25,3 +25,9 @@ MyEmptyPiece >> renderPieceOn: aSquare [
 
     ^ aSquare renderEmpty: self
 ]
+
+{ #category : 'as yet unclassified' }
+MyEmptyPiece >> targetSquaresLegal: aBoolean [
+
+	^ #()
+]
